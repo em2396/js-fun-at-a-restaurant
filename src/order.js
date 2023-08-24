@@ -1,6 +1,17 @@
+function takeOrder(orderNumber, listOfOrders){
+  if(listOfOrders.length < 3){
+    listOfOrders.push(orderNumber);
+    return listOfOrders;
+  } else {
+    return listOfOrders;
+  }
+}
+
+
+
 
 module.exports = {
-  // takeOrder,
+  takeOrder,
   // refundOrder,
   // listItems,
   // searchOrder
