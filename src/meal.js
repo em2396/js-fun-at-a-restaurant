@@ -34,15 +34,34 @@ function formatPrice(price){
   return `$${price}`;
 }
 console.log(formatPrice(frenchToast.price));
+console.log(frenchToast.price); //invoking the function to format the price doesn't change the value within the object.
 
+
+
+function decreasePrice(price){
+  price*=.9
+  return price
+}
+console.log(decreasePrice(frenchToast.price));
+
+function createRecipe(title, ingredients, menuItemType){
+  var newRecipe = {
+    title : title,
+    ingredients : ingredients,
+    type : menuItemType
+  }
+  return newRecipe;
+}
+var soup = createRecipe('soup', ['noodles', 'broth'], 'entree');
+console.log(soup);
 
 module.exports = {
   nameMenuItem,
   createMenuItem,
   addIngredients,
   formatPrice,
-  // decreasePrice,
-  // createRecipe
+  decreasePrice,
+  createRecipe
 }
 
 
