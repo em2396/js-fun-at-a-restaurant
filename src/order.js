@@ -61,33 +61,51 @@ function listItems(arrOfOrders){
 }
 console.log(listItems(takeOutOrder));
 
+// function searchOrder(arrOfOrders, foodItem){
+//   for(var i = 0; i < arrOfOrders.length; i++){
+//     if(arrOfOrders[i].item.includes(foodItem)){
+//       var foundFoodItem = true;
+//       return foundFoodItem;
+//       } else {
+//         return false;
+//       }
+//     }
+// } I am very confused why this doesn't work. It is displaying the expected values in VS code terminal but failing the test. The only thing I could find was some documentation on .includes() on objects but I didn't understand what it was saying. 
+
+
 function searchOrder(arrOfOrders, foodItem){
-  for(var i = 0; i < arrOfOrders.length; i++){
-    var foundFoodItem = arrOfOrders[i].item.includes(foodItem)
-    //return foundFoodItem;
-    }
-    return foundFoodItem;
-}
-// console.log(searchOrder(takeOutOrder, 'Pizza'));
-// var order1 = {
-//   orderNumber: 1234,
-//   item: "burger",
-//   price: "8.99",
-//   orderType: "delivery",
-//   status: "accepted"
-// };
+  //for(var i = 0; i < arrOfOrders.length; i++){
+    if(arrOfOrders.find(element => element.item === foodItem)){
+      // var foundFoodItem = true;
+      // return foundFoodItem;
+      return true;
+   } else {
+      return false;
+   }
+  }
 
-// var order2 = {
-//   orderNumber: 2342,
-//   item: "blt sandwich",
-//   price: "5.99",
-//   orderType: "delivery",
-//   status: "accepted"
-// };
 
-// var deliveryOrders = [order1, order2];
-// console.log(searchOrder(deliveryOrders, 'burger'), 'burger is present');
-// console.log(searchOrder(deliveryOrders, 'sushi'), 'sushi isnt present');
+
+console.log(searchOrder(takeOutOrder, 'Pizza'));
+var order1 = {
+  orderNumber: 1234,
+  item: "burger",
+  price: "8.99",
+  orderType: "delivery",
+  status: "accepted"
+};
+
+var order2 = {
+  orderNumber: 2342,
+  item: "blt sandwich",
+  price: "5.99",
+  orderType: "delivery",
+  status: "accepted"
+};
+
+var deliveryOrders = [order1, order2];
+console.log(searchOrder(deliveryOrders, 'burger'), 'burger is present');
+console.log(searchOrder(deliveryOrders, 'sushi'), 'sushi isnt present');
 
 
 
