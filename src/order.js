@@ -39,16 +39,16 @@ function refundOrder(orderNumber, arrOfOrders){
   for(var i = 0; i < arrOfOrders.length; i++){
     if(arrOfOrders[i].orderNumber === orderNumber){
       arrOfOrders.splice(i, 1);
-      //delete arrOfOrders[i];
-      //arrOfOrders = arrOfOrders.flat(1); 
-      //why doesn't this work?
+      // delete arrOfOrders[i];
+      // arrOfOrders = arrOfOrders.flat(1);
+      ////arrOfOrders = arrOfOrders.filter(element => {element === undefined})
       }
     }
-      return arrOfOrders;
+      return  arrOfOrders;
   }
-
+takeOutOrder = refundOrder(2, takeOutOrder);
 // console.log(refundOrder(2, takeOutOrder));
-// console.log(takeOutOrder)
+console.log(takeOutOrder)
 
 function listItems(arrOfOrders){
   var itemName = [];
@@ -61,28 +61,26 @@ function listItems(arrOfOrders){
 }
 console.log(listItems(takeOutOrder));
 
-// function searchOrder(arrOfOrders, foodItem){
-//   for(var i = 0; i < arrOfOrders.length; i++){
-//     if(arrOfOrders[i].item.includes(foodItem)){
-//       var foundFoodItem = true;
-//       return foundFoodItem;
-//       } else {
-//         return false;
-//       }
-//     }
-// } I am very confused why this doesn't work. It is displaying the expected values in VS code terminal but failing the test. The only thing I could find was some documentation on .includes() on objects but I didn't understand what it was saying. 
-
-
 function searchOrder(arrOfOrders, foodItem){
-  //for(var i = 0; i < arrOfOrders.length; i++){
-    if(arrOfOrders.find(element => element.item === foodItem)){
-      // var foundFoodItem = true;
-      // return foundFoodItem;
+  for(var i = 0; i < arrOfOrders.length; i++){
+    if(arrOfOrders[i].item.includes(foodItem)){
       return true;
-   } else {
-      return false;
-   }
+      }
+    }
+    return false; 
   }
+// } 
+
+// function searchOrder(arrOfOrders, foodItem){
+//   //for(var i = 0; i < arrOfOrders.length; i++){
+//     if(arrOfOrders.find(element => element.item === foodItem)){
+//       // var foundFoodItem = true;
+//       // return foundFoodItem;
+//       return true;
+//    } else {
+//       return false;
+//    }
+//   }
 
 
 
@@ -105,6 +103,7 @@ var order2 = {
 
 var deliveryOrders = [order1, order2];
 console.log(searchOrder(deliveryOrders, 'burger'), 'burger is present');
+console.log(searchOrder(deliveryOrders, 'blt sandwich'), 'blt is present');
 console.log(searchOrder(deliveryOrders, 'sushi'), 'sushi isnt present');
 
 

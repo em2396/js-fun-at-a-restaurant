@@ -1,11 +1,13 @@
 function createRestaurant(restName){
-  var breakfast = [];
-  var lunch = [];
-  var dinner = [];
-  var pizzaRestaurant = restName; 
-  return breakfast, lunch, dinner, pizzaRestaurant;
+  var restObj = {
+    name : restName
+  }
+  return restObj
 }
-console.log(createRestaurant("sexy pizza"));
+var sexyPizza = createRestaurant("sexy pizza");
+console.log(createRestaurant('Quiero Arepas'));
+console.log(sexyPizza);
+
 
 module.exports = {
   createRestaurant, 
