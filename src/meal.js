@@ -1,11 +1,23 @@
+
+//PSEUDOCODE
+//declare a function with one parameter : name
+  //return the string interpolation : Delicious with the inputted argument of name.
 function nameMenuItem(name) {
   return `Delicious ${name}`
 }
+
+// TEST CASES and troubleshooting
 // var burritoItem = nameMenuItem("burrito");
 // var sushiItem = nameMenuItem("Pizza");
 // var tacoItem = nameMenuItem("Taco");
 // console.log(burritoItem, sushiItem, tacoItem);
 
+//PSUEDOCODE
+//declare a function definition createMenutItem with three parameters: name, price and type
+  //declare a variable object with three key-value pairs: name paired with the name argument, price with the price argument, and type with the type argument
+  //return the newly created object
+//This function will create a menuItem to the menu, so the passed in arguments should be a string with the name of the food, a number to display the price, 
+//and a string with the value of what the meal type is
 function createMenuItem(name, price, type) {
   var menuItem = {
   name : name,
@@ -14,6 +26,7 @@ function createMenuItem(name, price, type) {
   }
   return menuItem;
 }
+
 var frenchToast = createMenuItem("French toast", 6.99, "breakfast");
 console.log(frenchToast);
 
