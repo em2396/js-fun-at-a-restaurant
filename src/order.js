@@ -40,7 +40,8 @@ function refundOrder(orderNumber, arrOfOrders){
     if(arrOfOrders[i].orderNumber === orderNumber){
       arrOfOrders.splice(i, 1);
       // delete arrOfOrders[i];
-      // arrOfOrders = arrOfOrders.flat(1);
+      // arrOfOrders = arrOfOrders.flat(1); //I originally couldn't get this to work because it wasn't deleting the empty space in
+      //the global variable of takeOut but it had to do where I placed the return statement. 
       ////arrOfOrders = arrOfOrders.filter(element => {element === undefined})
       }
     }

@@ -15,7 +15,7 @@ var sexyPizza = createRestaurant("sexy pizza");
 
 
 function addMenuItem(restName, menuItem){
-  for(let i in restName.menus){
+  for(var i in restName.menus){
     //console.log(restName.menus);
     //console.log(i)
     //console.log(Object.values(restName.menus[i])) //this equals 'b','r'... why doesn't it give the string-keyed property values? i was doing Object.values(i)
@@ -57,15 +57,76 @@ function addMenuItem(restName, menuItem){
     type: "lunch"
   };
 
-  addMenuItem(sexyPizza, bbqPizza);
-  console.log(sexyPizza);
+ addMenuItem(sexyPizza, bbqPizza);
+ addMenuItem(sexyPizza, cheesePizza);
+ // console.log(sexyPizza);
+
+// function removeMenuItem(restName, menuItemName, type){
+  // for(var i in restName.menus){
+//     console.log(i.menuItemName)// equal undefined
+//     //console.log(Object.values(restName.menus[i])) // = [] (break), [ [object] [object] (lunch), [] (dinner)
+//     if(Object.values(restName.menus[i]).includes(i.menuItemName) === true && type === 'breakfast'){
+//       //console.log(restName.menus[i])
+//       //console.log(restName)
+//       restName.menus[i].splice(menuItem, 1); 
+//       //console.log(restName)
+//     } else if(Object.values(restName.menus[i]).includes(i.menuItemName) === true && type === 'lunch'){
+//       restName.menus[i].splice(menuItem, 1);
+//     } else if(Object.values(restName.menus[i]).includes(i.menuItemName) === true && type === 'dinner'){
+//       restName.menus[i].splice(menus, 1);
+//     }
+//   }
+//   return restName
+// }
+function removeMenuItem(restName, menuItemName, mealType){
+  for(var i in restName.menus){
+    if(i === 'breakfast' && mealType === 'breakfast'){
+        for(var j of restName.menus[i]){
+          if(j.name === menuItemName){
+            restName.menus[i].splice(menuItemName, 1);
+            return `No one is eating our ${menuItemName} - it has been removed from the ${mealType} menu!`
+          }
+        }
+       
+    } else if(i === 'lunch' && mealType === 'lunch'){
+        for(var j of restName.menus[i]){
+          //console.log(j)
+          if(j.name === menuItemName){
+            restName.menus[i].splice(menuItemName, 1);
+            return `No one is eating our ${menuItemName} - it has been removed from the ${mealType} menu!` 
+          }
+        }
+     
+    } else if(i === 'dinner' && mealType === 'dinner'){
+        for(var j of restName.menus[i]){
+          if(j.name === menuItemName){
+          restName.menus[i].splice(menuItemName, 1);
+          return `No one is eating our ${menuItemName} - it has been removed from the ${mealType} menu!`
+          }
+        }
+      }
+    }
+    return `Sorry, we don't sell ${menuItemName}, try adding a new recipe!`
+}
+//I think I could come back and refactor it by only having one j for loop... I'm just happy I finally got it to work even if it's 
+//an if statement within a for loop within an if statement within a for loop 
 
 
+console.log(sexyPizza)
+//console.log(sexyPizza['menus']['lunch'][0]) //bbq chicken object
+console.log(removeMenuItem(sexyPizza, 'BBQ Chicken', 'lunch'))
+console.log(sexyPizza) //sexy pizza without BBQ chicken
+//console.log(sexyPizza['menus']['lunch'][0]) //i is b, l, d key name; i.name
 
+    //console.log(restName.menus.i.name);
+    //console.log(Object.values(restName.menus[i])); //logs the values of b l and d
+    //console.log(restName.menus[i]) //logs the same thing as above
+    //console.log(Object.keys(restName.menus[i]))
+    //console.log(restName.menus.breakfast[i])
 
 module.exports = {
   createRestaurant, 
   addMenuItem,
-  // removeMenuItem,
+  removeMenuItem,
   // checkForFood
 }
