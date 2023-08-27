@@ -90,8 +90,9 @@ function removeMenuItem(restName, menuItemName, mealType){
        
     } else if(i === 'lunch' && mealType === 'lunch'){
         for(var j of restName.menus[i]){
-          //console.log(j)
+          //console.log(j) //prints the object within the array
           if(j.name === menuItemName){
+            //console.log(j.name); //prints BBQ Chicken
             restName.menus[i].splice(menuItemName, 1);
             return `No one is eating our ${menuItemName} - it has been removed from the ${mealType} menu!` 
           }
@@ -112,21 +113,36 @@ function removeMenuItem(restName, menuItemName, mealType){
 //an if statement within a for loop within an if statement within a for loop 
 
 
-console.log(sexyPizza)
+//console.log(sexyPizza)
 //console.log(sexyPizza['menus']['lunch'][0]) //bbq chicken object
-console.log(removeMenuItem(sexyPizza, 'BBQ Chicken', 'lunch'))
-console.log(sexyPizza) //sexy pizza without BBQ chicken
+//console.log(removeMenuItem(sexyPizza, 'BBQ Chicken', 'lunch'))
+//console.log(sexyPizza) //sexy pizza without BBQ chicken
 //console.log(sexyPizza['menus']['lunch'][0]) //i is b, l, d key name; i.name
 
-    //console.log(restName.menus.i.name);
-    //console.log(Object.values(restName.menus[i])); //logs the values of b l and d
-    //console.log(restName.menus[i]) //logs the same thing as above
-    //console.log(Object.keys(restName.menus[i]))
-    //console.log(restName.menus.breakfast[i])
+function checkForFood(restName, menuItem){
+  for(var i in restName.menus){
+      if(Object.values(restName.menus[i]).includes(menuItem)){
+        return `Yes, we're serving ${menuItem.name} today!`
+      }
+    }
+        return `Sorry, we aren't serving ${menuItem.name} today.`
+  }
+//var isTuna = checkForFood(sexyPizza, 'tuna')
+//console.log(isTuna);
+//console.log(checkForFood(sexyPizza, 'Cheese')) //this worked because it's the string and the other is the variable!!
 
 module.exports = {
   createRestaurant, 
   addMenuItem,
   removeMenuItem,
-  // checkForFood
+  checkForFood
 }
+
+
+
+    //console.log(restName.menus.i.name);
+    //console.log(Object.values(restName.menus[i])); //logs the values of b l and d
+    //console.log(restName.menus[i]) //logs the same thing as above
+    //console.log(Object.keys(restName.menus[i]))
+    //console.log(restName.menus.breakfast[i]) <--- all these were in the removeItem function I used to see which layer I was at
+    //I was getting very confused with what i was 
