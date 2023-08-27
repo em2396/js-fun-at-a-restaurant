@@ -1,3 +1,8 @@
+//PSEUDOCODE
+//Create a function definition takeOrder with two parameters: orderNumber and arrOfOrders
+  //If the arr of orders (which is an object that inclues: order number, price, order type and status), is less than three,
+  //push the new inputted argument which is an object into the the array of orders.
+  //else, if it's not less than three return the array of orders without the new order because ther isn't space  for it.
 function takeOrder(orderNumber, arrOfOrders){
   if(arrOfOrders.length < 3){
     arrOfOrders.push(orderNumber);
@@ -6,6 +11,7 @@ function takeOrder(orderNumber, arrOfOrders){
     return arrOfOrders;
   }
 }
+
 var order1 = {
   orderNumber : 1,
   item: 'burger',
@@ -35,21 +41,31 @@ takeOrder(order2, takeOutOrder);
 takeOrder(order3, takeOutOrder);
 //console.log(takeOutOrder);
 
+
+//PSEUDOCODE 
+//Create a function refundOrder with two parameters: orderNumber and arrOfOrders (which is an arr of objects)
+  //initialize a for loop, declare a variable i and assign it the value of zero. Iterate through arrOfOrders as long as it has length, 
+  //and increment i by one after each iteration
+    //if arrOfOrders.orderNumber at its current iteration is equal to the inputted orderNumber 
+      //remove the order number object from the arrOfOrders by using the delete or splice method.
+        //return arrOfOrders
 function refundOrder(orderNumber, arrOfOrders){
   for(var i = 0; i < arrOfOrders.length; i++){
     if(arrOfOrders[i].orderNumber === orderNumber){
       arrOfOrders.splice(i, 1);
       // delete arrOfOrders[i];
       // arrOfOrders = arrOfOrders.flat(1); //I originally couldn't get this to work because it wasn't deleting the empty space in
-      //the global variable of takeOut but it had to do where I placed the return statement. 
-      ////arrOfOrders = arrOfOrders.filter(element => {element === undefined})
+      //the global variable of takeOut but it had to do where I placed the return statement. And the .splice method is cleaner code with less
+      //lines, though I am unsure about the time complexity differences.
+      ////arrOfOrders = arrOfOrders.filter(element => {element === undefined}) I tried using this method to get rid of the empty space created 
+      //the delete method but it didn't work...
       }
     }
       return  arrOfOrders;
   }
-takeOutOrder = refundOrder(2, takeOutOrder);
+//takeOutOrder = refundOrder(2, takeOutOrder);
 // console.log(refundOrder(2, takeOutOrder));
-console.log(takeOutOrder)
+//console.log(takeOutOrder)
 
 function listItems(arrOfOrders){
   var itemName = [];
