@@ -30,6 +30,13 @@ function createMenuItem(name, price, type) {
 var frenchToast = createMenuItem("French toast", 6.99, "breakfast");
 console.log(frenchToast);
 
+//PSEUDOCODE
+//Create a function addIngredients with two parameters: the newIng and the arr of ingredients
+  //if the arr of ingredients includes the new ingr already, 
+    //return the ingr arr
+  //else 
+    //push the new ingredient into the ingredients arr
+    //return ingredientsArr
 function addIngredients(newIngr, ingredientsArr){
   if(ingredientsArr.includes(newIngr.toLowerCase())){
     return ingredientsArr
@@ -38,11 +45,16 @@ function addIngredients(newIngr, ingredientsArr){
   return ingredientsArr;
   }
 }
+
+//TEST CASES
 var macAndCheeseIngredients = ['cheese', 'noodles', 'salt', 'pepper', 'cream cheese', 'milk'];
 console.log(addIngredients('mustard', macAndCheeseIngredients));
 console.log(addIngredients('cheese', macAndCheeseIngredients));
 console.log(addIngredients('CHeese', macAndCheeseIngredients));
 
+//PSEUDOCODE
+//Create a function formatPrice with one parameter: price
+  //return the string interpolation of the number value price with a dollar sign before it. This will coerce the number into a string
 function formatPrice(price){
   return `$${price}`;
 }
@@ -50,13 +62,20 @@ console.log(formatPrice(frenchToast.price));
 console.log(frenchToast.price); //invoking the function to format the price doesn't change the value within the object.
 
 
-
+//PSEUDOCODE
+//Create a function decreasePrice with one paramter: price
+  //change the value of price to be 10% less than the original price. We can do this by multiplying the value of price by .9
+  //return price
 function decreasePrice(price){
   price*=.9
   return price
 }
 console.log(decreasePrice(frenchToast.price));
 
+//PSEUDOCODE
+//Create a function createRecipe with three parameters: title, ingredient, and menuItemType
+  //initialize a new variable and assign it the value of an object with the key-value pairs 
+  //return the newRecipe object with the passed in arguments
 function createRecipe(title, ingredients, menuItemType){
   var newRecipe = {
     title : title,
