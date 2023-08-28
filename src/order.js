@@ -63,10 +63,22 @@ function refundOrder(orderNumber, arrOfOrders){
     }
       return  arrOfOrders;
   }
+//TEST CASES - these were actually causing me issues while running my npm because it was removing an item that needed to be ran in the test
+//for success.
 //takeOutOrder = refundOrder(2, takeOutOrder);
 // console.log(refundOrder(2, takeOutOrder));
 //console.log(takeOutOrder)
 
+
+//PSEUDOCODE
+//Create a function listItems with one parameter: an array of orders
+//initialize a variable itemName and assign it the value of an empty array.
+//Use a for loop to iterate through the arrOfOrders, where we'll add the value of the key item to the new array we created before
+//Create a for loop. Create a variable i and assign it the value of 0. Iterate through the arrayOfOrders as long as it has length, and
+//increment the value of i by one after each iteration.
+  //push the object's value of item into the newly created array
+  //use the .join built in method to create a list of all the item menu names.
+  //return the newly created array
 function listItems(arrOfOrders){
   var itemName = [];
   for(var i = 0; i < arrOfOrders.length; i++){
@@ -76,8 +88,19 @@ function listItems(arrOfOrders){
   }
   return itemNames;
 }
+
 console.log(listItems(takeOutOrder));
 
+
+//PSEUDOCODE
+//Create a function searchOrder with two parameters: array of orders and food item
+  //use a for loop to iterate through the array to look for the argument inputted in the function
+  //Create a for loop. Initialize a variable i and assign it the value of zero. iterate through the arrayOfOrders as long as it has length
+  //increment i by one after each iteration
+    //if at the current index in the arrOfOrders,the objects item value includes (built in js method) the inputted foodItem argument,
+      //return true
+    //else
+      //return false
 function searchOrder(arrOfOrders, foodItem){
   for(var i = 0; i < arrOfOrders.length; i++){
     if(arrOfOrders[i].item.includes(foodItem)){
@@ -86,18 +109,6 @@ function searchOrder(arrOfOrders, foodItem){
     }
     return false; 
   }
-// } 
-
-// function searchOrder(arrOfOrders, foodItem){
-//   //for(var i = 0; i < arrOfOrders.length; i++){
-//     if(arrOfOrders.find(element => element.item === foodItem)){
-//       // var foundFoodItem = true;
-//       // return foundFoodItem;
-//       return true;
-//    } else {
-//       return false;
-//    }
-//   }
 
 
 
@@ -123,7 +134,8 @@ console.log(searchOrder(deliveryOrders, 'burger'), 'burger is present');
 console.log(searchOrder(deliveryOrders, 'blt sandwich'), 'blt is present');
 console.log(searchOrder(deliveryOrders, 'sushi'), 'sushi isnt present');
 
-
+//These test cases I copied and pasted from the test.js file can be left uncommented out because their functionality won't disrupt the
+//test, whereas adding or removing items will change the overall value of the variable and cause the test to fail.
 
 
 
